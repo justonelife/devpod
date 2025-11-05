@@ -1,0 +1,4 @@
+{
+  "name": "devpod-test",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node"
+}
