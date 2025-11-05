@@ -1,7 +1,13 @@
-FROM mcr.microsoft.com/devcontainers/javascript-node:0-18
+# Start from a feature-rich base image
+FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install git \
-    # && apt install zsh -y \
-    # && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
-    # && apt-get install -y neovim
+# Install zsh and the latest Neovim
+RUN sudo apt-get update && sudo apt-get install -y zsh && \
+    # Install latest stable Neovim (required for LazyVim)
+    sudo apt install neovim && \
+    # Clean up
+    sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
+
+# Set zsh as the default shell for the 'vscode' user (created by the base image)
+# If you use a different base image, you may need to adjust the user
+RUN sudo chsh -s /bin/zsh $(whoami)

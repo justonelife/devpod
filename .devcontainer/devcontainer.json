@@ -1,4 +1,21 @@
 {
-  "name": "devpod-test",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node"
+  "name": "My Dotfiles Workspace",
+  // Tell DevPod to build from our Dockerfile
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  // Run our setup script after the container is built
+  // This is where your dotfiles and LazyVim will be set up
+  "postCreateCommand": "bash ./.devcontainer/post-create.sh",
+  // Optional: VS Code settings to default to zsh
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+      "zsh": {
+        "path": "/bin/zsh"
+      }
+    }
+  },
+  // Keep the container running even if there's no active connection
+  "overrideCommand": false
 }
