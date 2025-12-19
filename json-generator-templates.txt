@@ -1,0 +1,25 @@
+[
+  "{{repeat(50, 50)}}",
+  {
+    "id": "CON.{{integer(10000, 99999)}}",
+    "value": "{{company()}}",
+    "level": 0,
+    "extra": {
+      "pictureId": null,
+      "email": "{{email()}}",
+      "zip": "36000",
+      "address": "{{street()}}",
+      "city": "{{city()}}",
+      "country": "{{random('Switzerland', 'Germany', 'Austria')}}",
+      "buildingNumber": "{{integer(1, 300)}}",
+      "contractorType": "Contractor",
+      "serviceCategories": [
+        "{{repeat(1, 4)}}",
+        "{{random('Floors','Plumbing Central','Cleaning & Disposal','Bathroom, Shower, WC')}}"
+      ]
+    },
+    "response": -1,
+    "type": null,
+    "children": []
+  }
+]
